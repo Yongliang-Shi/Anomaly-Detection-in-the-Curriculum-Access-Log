@@ -40,8 +40,14 @@ def wrangle_curriculum_access_log():
 
     # Create a table to show lessons
     df_pages = df.page_accessed
+    
+    # Replace / with homepage
     df_pages.replace('/', 'homepage', inplace=True)
+    
+    # Split the url by the first '/' and expand to two columns
     df_pages = df_pages.str.split('/', n=1, expand=True)
+    
+    # Change the columns names
     df_pages.columns = ['lesson', 'sublesson']
 
     # Concat the lesson columns to the original dataframe
