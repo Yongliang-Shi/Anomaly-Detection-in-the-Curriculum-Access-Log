@@ -6,6 +6,9 @@ import pandas as pd
 
 # %%
 def wrangle_curriculum_access_log():
+    """
+    The function is used to acquire and prepare the curriculum access log dataset.
+    """
     # Load the curriculum access dataset
     df_log = pd.read_csv('anonymized-curriculum-access.txt',
                         engine='python',
@@ -48,11 +51,20 @@ def wrangle_curriculum_access_log():
     df_pages = df_pages.str.split('/', n=1, expand=True)
     
     # Change the columns names
-    df_pages.columns = ['lesson', 'sublesson']
+    df_pages.columns = ['lesson', 'lesson_detail']
 
     # Concat the lesson columns to the original dataframe
     df = pd.concat([df, df_pages], axis=1)
 
     # Drop the column page_accessed
-    df.drop(columns='page_accessed', inplace=True)
+    df.drop(columns=['page_accessed', 'lesson_detail'], inplace=True)
+
+    # Handle missing values
+    df.cohort_id.fillna(0, inplace=True)
+    df.name.fillna('zero', inplace=True)
+    df.program_id.fillna(0, inplace=True)
+    df.lesson.fillna('homepage', inplace=True)
+    df.start_date.fillna(pd.Timestamp('2018-01-26 09:55:03'), inplace=True)
+    df.end_date.fillna(pd.Timestamp('2020-11-02 16:48:47'), inplace=True)
+
     return df
