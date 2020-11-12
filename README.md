@@ -25,8 +25,8 @@ Focusing on the suspicious IP addresses to access the data science curriculum, 3
 
 - Lower Left: Cross Access Over Time Based on Program (unit: week)<br>
 Web development cross-access significantly more than data science. Before July 2019, no cross-access is observed. After July 2019, there are two windows when the cross-access from web development significantly dropped:<br>
-1. Nearly December 2019. It is expected because it is the holiday season.<br>
-2. Nearly June 2020. It is unexpected so it may be another time when the cross-access has been shut down.<br> 
+    1. Nearly December 2019. It is expected because it is the holiday season.<br>
+    2. Nearly June 2020. It is unexpected so it may be another time when the cross-access has been shut down.<br> 
 
 - Lower Right: Post graduation access to web development curriculum<br>
 The top 3 topics the web development grads continuing to reference after graduation are: spring, appendix and javascript-i.<br>
